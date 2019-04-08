@@ -1,0 +1,35 @@
+zh:
+  mail_custom_reminder_subject: "[知识库提醒] 有%{count}个工单"
+  label_custom_reminders_plural: '自定义提醒'
+  label_custom_reminder_new: "新建提醒"
+  label_custom_reminder_trigger_definition: "自定义提醒"
+  label_custom_reminders_user_type: '自定义的脚本'
+  label_reminder_enabled_projects: '项目'
+  label_schedule_custom_reminder: "即刻发送邮件通知"
+  label_destroy_custom_reminder: "删除提醒"
+  label_custom_reminder_to_author_and_watchers: "指派给，作者，跟踪者"
+  label_custom_reminder_import: "导入"
+
+  field_notification_recipient: '要通知的目标群体'
+  field_trigger_script: '触发自定义提醒的条件'
+  field_user_scope_script: '自定义用户范围的脚本'
+  field_send_days: "发送日期"
+  field_custom_reminder_file: '导入自定义提醒文件格式需为 .yml'
+
+  permission_manage_project_custom_reminders: "管理项目的自定义提醒"
+
+  error_custom_reminder_import: '导入自定义提醒时出错'
+
+  notice_custom_reminder_import: '导入自定义提醒成功'
+
+  text_custom_reminder_user_scope_info: "可用变量: issues_list(Array), issues_hash(Hash, key is User object, value issues_list), projects(Array)"
+  text_custom_reminder_trigger_info: "可用变量: issues_list(Array), issues_hash(Hash, key is User object, value issues_list), projects(Array)"
+  text_custom_reminder_trigger_example: |
+    Issue.open.where(project: projects).each do |issue|
+      issues_list << issue if issue.updated_on <= trigger_param.day.until(Date.today)
+    end
+  text_custom_reminder_user_scope_example: |
+    issues_list.each do |issue|
+      issues_hash[issue.assigned_to] ||= []
+      issues_hash[issue.assigned_to] << issue
+    end

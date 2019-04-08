@@ -1,3 +1,4 @@
+require_relative './application_job'
 class CustomRemindersEmailNotificationJob < ApplicationJob
   queue_as :email_notifications
 

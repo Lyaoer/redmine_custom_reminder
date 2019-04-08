@@ -7,6 +7,7 @@ class CustomRemindersController < ApplicationController
 
   def index
     @reminders = CustomReminder.all.to_a
+    TimingCustomRemindersController.new.reminder_timing()
   end
 
   def new
@@ -81,6 +82,8 @@ class CustomRemindersController < ApplicationController
 
   def find_custom_reminder
     @reminder = CustomReminder.find(params[:id])
+    trewt = params[:id]
+    rewa = @reminder
   rescue ActiveRecord::RecordNotFound
     render_404
   end

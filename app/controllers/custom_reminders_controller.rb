@@ -78,6 +78,14 @@ class CustomRemindersController < ApplicationController
     redirect_to custom_reminders_path
   end
 
+  def configtime
+    @time = params[:task_time]
+    if Setting.plugin_redmine_custom_reminder['task_time'].to_s != @time
+      Setting.[]="plugin_redmine_custom_reminder","task_time" => @time
+    end
+    redirect_to custom_reminders_path
+  end
+
   private
 
   def find_custom_reminder

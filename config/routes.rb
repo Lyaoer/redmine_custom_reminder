@@ -3,6 +3,7 @@ RedmineApp::Application.routes.draw do
     collection do
       get :schedule_custom_reminder
       post :import
+      post :configtime
     end
     member do
       get :export

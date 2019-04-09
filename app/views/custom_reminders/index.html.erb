@@ -1,5 +1,6 @@
 <% html_title(l(:label_custom_reminders_plural)) -%>
 <div class="contextual">
+  <%= link_to l(:setting_task_time), '#', :onclick => "showModal('task_time', '400px'); return false;" %>
   <%= link_to l(:label_custom_reminder_new), new_custom_reminder_path, :class => 'icon icon-add' %>
   <%= link_to l(:label_schedule_custom_reminder), schedule_custom_reminder_custom_reminders_path({force: true}), :class => 'icon icon-email-add' %>
   <%= link_to l(:label_custom_reminder_import), '#', :class => 'icon icon-import', :onclick => "showModal('import-dialog', '450px'); return false;" %>
@@ -64,5 +65,17 @@
       <%= submit_tag l(:button_import), :name => nil, :onclick => "hideModal(this);" %>
       <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
     </p>
+  <% end %>
+</div>
+
+<div id="task_time" style="display: none">
+  <h3 class="title"><%= l(:setting_task_time) %></h3>
+  <%= form_tag configtime_custom_reminders_path, :multipart => true do %>
+      <%= text_area_tag 'task_time', Setting.plugin_redmine_custom_reminder['task_time'] %>
+      <a href="http://tool.lu/crontab" target="_Blank">？</a>
+      <p class="buttons">
+        <%= submit_tag l(:button_save), :name => nil, :onclick => "hideModal(this);" %>
+        <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+      </p>
   <% end %>
 </div>

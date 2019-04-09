@@ -33,3 +33,5 @@ ru:
       issues_hash[issue.assigned_to] ||= []
       issues_hash[issue.assigned_to] << issue
     end
+
+  setting_task_time: 'Время.'

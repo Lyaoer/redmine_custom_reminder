@@ -1,4 +1,4 @@
-class InitializeCustomReminders < ActiveRecord::Migration[5.2]
+class InitializeCustomReminders < ActiveRecord::Migration
   def up
     create_table :custom_reminders do |t|
       t.column :name, :string, limit: 200, null: false

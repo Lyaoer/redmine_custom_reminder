@@ -1,4 +1,4 @@
-class CreateExampleReminders < ActiveRecord::Migration[5.2]
+class CreateExampleReminders < ActiveRecord::Migration
   def change
     days1 = %w[0 1 2 3 4 5 6]
     CustomReminder.create!(name: 'Alarm for issue due date',

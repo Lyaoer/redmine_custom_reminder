@@ -16,7 +16,8 @@ Redmine::Plugin.register :redmine_custom_reminder do
        :custom_reminder,
        { controller: 'custom_reminders', action: :index },
        if: proc { User.current.admin? },
-       caption: :label_custom_reminders_plural
+       caption: :label_custom_reminders_plural,
+       html: { class: 'icon icon-custom_reminder' }
 
   settings :default => {'task_time'=>'30 8 * * *'}
 end

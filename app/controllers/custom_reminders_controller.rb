@@ -2,6 +2,7 @@ require_relative '../jobs/custom_reminders_email_notification_job'
 
 class CustomRemindersController < ApplicationController
   layout 'admin'
+  self.main_menu = false
   before_action :require_admin
   before_action :find_custom_reminder, only: %i[show edit update destroy export]
 

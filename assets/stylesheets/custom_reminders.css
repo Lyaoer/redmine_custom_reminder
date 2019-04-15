@@ -1,8 +1,17 @@
-#admin-menu a.custom-reminder {
-    background-position: 0% 50%;
-    background-repeat: no-repeat;
-    padding-left: 20px;
-    background-image: url(../../../images/email.png);
+.icon-custom_reminder {
+    background-image: url(../images/reminder.png);
+}
+
+.icon-reminder_time {
+    background-image: url(../images/reminder_time.png);
+}
+
+.icon-reminder_import {
+    background-image: url(../images/import.png);
+}
+
+.icon-reminder_export {
+    background-image: url(../images/export.png);
 }
 
 .custom_reminder_script {

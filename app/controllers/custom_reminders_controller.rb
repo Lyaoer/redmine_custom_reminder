@@ -91,8 +91,6 @@ class CustomRemindersController < ApplicationController
 
   def find_custom_reminder
     @reminder = CustomReminder.find(params[:id])
-    trewt = params[:id]
-    rewa = @reminder
   rescue ActiveRecord::RecordNotFound
     render_404
   end

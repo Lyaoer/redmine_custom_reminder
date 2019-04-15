@@ -3,7 +3,7 @@
   <%= link_to l(:setting_task_time), '#', :onclick => "showModal('task_time', '400px'); return false;", :class => 'icon icon-reminder_time' %>
   <%= link_to l(:label_custom_reminder_new), new_custom_reminder_path, :class => 'icon icon-add' %>
   <%= link_to l(:label_schedule_custom_reminder), schedule_custom_reminder_custom_reminders_path({force: true}), :class => 'icon icon-email-add' %>
-  <%= link_to l(:label_custom_reminder_import), '#', :class => 'icon icon-reminder_import', :onclick => "showModal('import-dialog', '450px'); return false;" %>
+  <!--< %= link_to l(:label_custom_reminder_import), '#', :class => 'icon icon-reminder_import', :onclick => "showModal('import-dialog', '450px'); return false;" %>-->
 </div>
 
 <h2><%= l(:label_custom_reminders_plural) %></h2>
@@ -39,7 +39,7 @@
           </td>
           <td class="buttons">
             <p><%= link_to(l(:button_delete), reminder, :class => 'icon icon-del', :data => {:confirm => l(:text_are_you_sure)}, :confirm => l(:text_are_you_sure), :method => :delete) %></p>
-            <p><%= link_to("#{l(:label_export_to)} yml", export_custom_reminder_path(reminder), :class => 'icon icon-reminder_export') %></p>
+            <!--<p>< %= link_to("#{l(:label_export_to)} yml", export_custom_reminder_path(reminder), :class => 'icon icon-reminder_export') %></p>-->
           </td>
         </tr>
       <% end %>

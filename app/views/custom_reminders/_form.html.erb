@@ -9,6 +9,7 @@
           <%= check_box_tag 'custom_reminder[send_days][]', day_value, @reminder.send_days&.include?(day_value.to_s), class: 'inline' %>
           <%= label_tag 'custom_reminder[send_days][]', day_name, class: 'inline' %>
         <% end %>
+        <%= hidden_field_tag('custom_reminder[send_days][]', '', :value => nil) %>
       </p>
       <p><%= f.select :notification_recipient, options_for_select(CustomReminder.notification_recipient_names, @reminder.notification_recipient), required: true %></p>
       <p><%= f.check_box :active, required: true %></p>

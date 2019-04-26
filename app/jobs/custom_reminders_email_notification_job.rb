@@ -2,9 +2,6 @@ require_relative './application_job'
 class CustomRemindersEmailNotificationJob < ApplicationJob
   queue_as :email_notifications
 
-  def test
-    puts "It's time!"
-  end
   def perform(*args)
     custom_reminders = CustomReminder.active.to_a
     options = {}

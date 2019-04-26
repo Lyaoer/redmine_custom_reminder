@@ -1,9 +1,3 @@
-<!--<p>< %= l(:mail_custom_reminder_subject, :count => @issues.size) %></p>-->
-
-<% if @custom_reminder %>
-  <h3><%= "#{@custom_reminder.name}" %></h3>
-<% end %>
-
 <% @projects.each do |project| -%>
   <h5><%= "#{l(:label_project)} - #{project.name}" %></h5>
   <ul>

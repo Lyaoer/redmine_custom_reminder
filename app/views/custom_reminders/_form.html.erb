@@ -9,6 +9,7 @@
           <%= check_box_tag 'custom_reminder[send_days][]', day_value, @reminder.send_days&.include?(day_value.to_s), class: 'inline' %>
           <%= label_tag 'custom_reminder[send_days][]', day_name, class: 'inline' %>
         <% end %>
+        <%= hidden_field_tag('custom_reminder[send_days][]', '', :value => nil) %>
       </p>
       <p><%= f.select :notification_recipient, options_for_select(CustomReminder.notification_recipient_names, @reminder.notification_recipient), required: true %></p>
       <p><%= f.check_box :active, required: true %></p>
@@ -39,12 +40,12 @@
       <div class="splitcontentleft">
         <%= f.text_area :user_scope_script, :cols => 40, :rows => 20, :wrap => 'off', :class => 'custom_reminder_script' %>
         <em class="info"><%= l(:text_custom_reminder_user_scope_info) %></em>
-        <pre><code class="ruby syntaxhl"><%= Redmine::SyntaxHighlighting::Rouge.highlight_by_language(l(:text_custom_reminder_user_scope_example), 'ruby').html_safe %></code></pre>
+        <!--<pre><code class="ruby syntaxhl">< %= Redmine::SyntaxHighlighting::Rouge.highlight_by_language(l(:text_custom_reminder_user_scope_example), 'ruby').html_safe %></code></pre>-->
       </div>
       <div class="splitcontentright">
         <%= f.text_area :trigger_script, :cols => 40, :rows => 20, :wrap => 'off', :class => 'custom_reminder_script' %>
         <em class="info"><%= l(:text_custom_reminder_trigger_info) %></em>
-        <pre><code class="ruby syntaxhl"><%= Redmine::SyntaxHighlighting::Rouge.highlight_by_language(l(:text_custom_reminder_trigger_example), 'ruby').html_safe %></code></pre>
+        <!--<pre><code class="ruby syntaxhl">< %= Redmine::SyntaxHighlighting::Rouge.highlight_by_language(l(:text_custom_reminder_trigger_example), 'ruby').html_safe %></code></pre>-->
       </div>
     <% end %>
   </div>

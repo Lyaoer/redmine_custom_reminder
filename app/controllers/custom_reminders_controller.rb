@@ -2,6 +2,7 @@ require_relative '../jobs/custom_reminders_email_notification_job'
 
 class CustomRemindersController < ApplicationController
   layout 'admin'
+  self.main_menu = false
   before_action :require_admin
   before_action :find_custom_reminder, only: %i[show edit update destroy export]
 
@@ -51,7 +52,7 @@ class CustomRemindersController < ApplicationController
   def edit; end
 
   def export
-    send_data @reminder.export_as_yaml, filename: "#{@reminder.id}.yml", type: :yml
+    send_data @reminder.export_as_yaml, filename: "#{@reminder.name}.yml", type: :yml
   end
 
   def import
@@ -90,8 +91,6 @@ class CustomRemindersController < ApplicationController
 
   def find_custom_reminder
     @reminder = CustomReminder.find(params[:id])
-    trewt = params[:id]
-    rewa = @reminder
   rescue ActiveRecord::RecordNotFound
     render_404
   end

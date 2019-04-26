@@ -16,7 +16,22 @@ Redmine::Plugin.register :redmine_custom_reminder do
        :custom_reminder,
        { controller: 'custom_reminders', action: :index },
        if: proc { User.current.admin? },
-       caption: :label_custom_reminders_plural
+       caption: :label_custom_reminders_plural,
+       html: { class: 'icon icon-custom_reminder' }
 
   settings :default => {'task_time'=>'30 8 * * *'}
+
+  # def timming()
+  #   $time_reminder = nil
+  #   require 'rufus-scheduler'
+  #     $time_reminder = Rufus::Scheduler.new
+  #     $time_reminder.cron "* * * * *  Asia/Shanghai" do
+  #       # puts "It's time!"
+  #       # CustomRemindersEmailNotificationJob.new.perform_now
+  #       # CustomRemindersEmailNotificationJob.new.perform
+  #       CustomRemindersEmailNotificationJob.new.test
+  #     end
+  # end
+  # timming()
+
 end

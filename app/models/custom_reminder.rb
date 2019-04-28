@@ -55,13 +55,27 @@ class CustomReminder < ActiveRecord::Base
     case target
     when :assigned_to
       issues_list.each do |issue|
-        issues_hash[issue.assigned_to] ||= []
-        issues_hash[issue.assigned_to] << issue
+        if issue.assigned_to.is_a?(User)
+          issues_hash[issue.assigned_to] ||= []
+          issues_hash[issue.assigned_to] << issue
+        elsif issue.assigned_to.is_a?(Group)
+          issue.assigned_to.users.each do |user|
+            issues_hash[user] ||= []
+            issues_hash[user] << issue
+          end
+        end
       end
     when :all_awa
       issues_list.each do |issue|
-        issues_hash[issue.assigned_to] ||= []
-        issues_hash[issue.assigned_to] << issue
+        if issue.assigned_to.is_a?(User)
+          issues_hash[issue.assigned_to] ||= []
+          issues_hash[issue.assigned_to] << issue
+        elsif issue.assigned_to.is_a?(Group)
+          issue.assigned_to.users.each do |user|
+            issues_hash[user] ||= []
+            issues_hash[user] << issue
+          end
+        end
         issues_hash[issue.author] ||= []
         issues_hash[issue.author] << issue
         issue.watchers.each do |w|

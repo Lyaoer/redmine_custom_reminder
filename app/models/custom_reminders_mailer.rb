@@ -19,7 +19,7 @@ class CustomRemindersMailer < Mailer
     @issues_url = "http://#{Setting['host_name']}#{@issues_url}"
 
     mail to: user,
-         subject: l(:mail_custom_reminder_subject, count: issues.size)
+         subject: l(:mail_custom_reminder_subject, count: issues.size) + @custom_reminder.name
   end
 
   def self.custom_reminders(issues_by_user = {}, projects = [], custom_reminder = nil)

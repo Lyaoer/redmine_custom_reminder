@@ -1,6 +1,6 @@
+require_relative '../jobs/custom_reminders_email_notification_job'
 class TimingCustomRemindersController < ApplicationController
   require 'rufus-scheduler'
-
   @@time_reminder = nil
 
   def reminder_timing()

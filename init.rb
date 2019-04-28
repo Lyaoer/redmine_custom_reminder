@@ -19,5 +19,14 @@ Redmine::Plugin.register :redmine_custom_reminder do
        caption: :label_custom_reminders_plural,
        html: { class: 'icon icon-custom_reminder' }
 
-  settings :default => {'task_time'=>'30 8 * * *'}
+  settings :default => {'task_time'=>'* 8 * * *'}
+
+  def start_reminder
+    require 'rufus-scheduler'
+    @init_reminder ||= Rufus::Scheduler.new
+    @init_reminder.in '1m' do
+      TimingCustomRemindersController.new.reminder_timing()
+    end
+  end
+  start_reminder()
 end

@@ -75,7 +75,7 @@
       <a href="http://tool.lu/crontab" target="_Blank">？</a>
       <p class="buttons">
         <%= submit_tag l(:button_save), :name => nil, :onclick => "hideModal(this);" %>
-        <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+        <%= submit_tag l(:button_cancel), :onclick => "hideModal(this);return false;", :type => 'button' %>
       </p>
   <% end %>
 </div>
